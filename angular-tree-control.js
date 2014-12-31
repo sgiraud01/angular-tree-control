@@ -125,6 +125,9 @@
                     $scope.selectNodeLabel = function( selectedNode ){
                         if (selectedNode[$scope.options.nodeChildren] && selectedNode[$scope.options.nodeChildren].length > 0 &&
                             !$scope.options.dirSelectable) {
+                             if ($scope.onSelection) {
+                                  $scope.onSelection({node: selectedNode});
+                             }
                             this.selectNodeHead();
                         }
                         else {
